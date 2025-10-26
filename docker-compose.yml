@@ -4,7 +4,7 @@ services:
   # Frontend - Next.js
   frontend:
     build:
-      context: ./tacticore-fe-c3
+      context: ../tacticore-fe-c3
       dockerfile: Dockerfile
     ports:
       - "3000:3000"
@@ -12,7 +12,7 @@ services:
       - NODE_ENV=development
       - NEXT_PUBLIC_API_URL=http://localhost:8080
     volumes:
-      - ./tacticore-fe-c3:/app
+      - ../tacticore-fe-c3:/app
       - /app/node_modules
       - /app/.next
     depends_on:
@@ -31,7 +31,7 @@ services:
   # Backend - Spring Boot Java
   backend:
     build:
-      context: ./tesis
+      context: .
       dockerfile: Dockerfile
     ports:
       - "8080:8080"
@@ -39,7 +39,7 @@ services:
       - SPRING_PROFILES_ACTIVE=docker
       - SERVER_PORT=8080
     volumes:
-      - ./tesis:/app
+      - .:/app
       - maven_cache:/root/.m2
     networks:
       - tacticore-network

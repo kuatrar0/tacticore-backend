@@ -51,6 +51,21 @@ public class UserService {
         return userRepository.findByName(name);
     }
     
+    // Get user by email
+    public Optional<UserEntity> findByEmail(String email) {
+        return userRepository.findByEmail(email);
+    }
+    
+    // Get user by Steam ID
+    public Optional<UserEntity> findBySteamId(String steamId) {
+        return userRepository.findBySteamId(steamId);
+    }
+    
+    // Save user
+    public UserEntity save(UserEntity user) {
+        return userRepository.save(user);
+    }
+    
     // Check if user exists
     public boolean userExists(String name) {
         return userRepository.existsByName(name);

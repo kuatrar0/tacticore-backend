@@ -11,8 +11,23 @@ public class UserEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     
-    @Column(name = "name", unique = true, nullable = false)
+    @Column(name = "name", unique = true)
     private String name;
+    
+    @Column(name = "email", unique = true)
+    private String email;
+    
+    @Column(name = "password")
+    private String password;
+    
+    @Column(name = "steam_id", unique = true)
+    private String steamId;
+    
+    @Column(name = "steam_username")
+    private String steamUsername;
+    
+    @Column(name = "active", nullable = false)
+    private boolean active = true;
     
     @Column(name = "role", nullable = false)
     private String role;
@@ -57,6 +72,21 @@ public class UserEntity {
     
     public String getName() { return name; }
     public void setName(String name) { this.name = name; }
+    
+    public String getEmail() { return email; }
+    public void setEmail(String email) { this.email = email; }
+    
+    public String getPassword() { return password; }
+    public void setPassword(String password) { this.password = password; }
+    
+    public String getSteamId() { return steamId; }
+    public void setSteamId(String steamId) { this.steamId = steamId; }
+    
+    public String getSteamUsername() { return steamUsername; }
+    public void setSteamUsername(String steamUsername) { this.steamUsername = steamUsername; }
+    
+    public boolean isActive() { return active; }
+    public void setActive(boolean active) { this.active = active; }
     
     public String getRole() { return role; }
     public void setRole(String role) { this.role = role; }

@@ -1,6 +1,7 @@
 package com.tacticore.lambda.model.dto;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.tacticore.lambda.model.UserEntity;
 
 public class UserDto {
     
@@ -28,6 +29,18 @@ public class UserDto {
     @JsonProperty("kdr")
     private Double kdr;
     
+    @JsonProperty("email")
+    private String email;
+    
+    @JsonProperty("steamId")
+    private String steamId;
+    
+    @JsonProperty("steamUsername")
+    private String steamUsername;
+    
+    @JsonProperty("active")
+    private Boolean active;
+    
     // Constructors
     public UserDto() {}
     
@@ -41,6 +54,22 @@ public class UserDto {
         this.totalDeaths = totalDeaths;
         this.totalMatches = totalMatches;
         this.kdr = kdr;
+    }
+    
+    // Constructor from UserEntity
+    public UserDto(UserEntity entity) {
+        this.id = entity.getId();
+        this.name = entity.getName();
+        this.email = entity.getEmail();
+        this.role = entity.getRole();
+        this.averageScore = entity.getAverageScore();
+        this.totalKills = entity.getTotalKills();
+        this.totalDeaths = entity.getTotalDeaths();
+        this.totalMatches = entity.getTotalMatches();
+        this.kdr = entity.getKDR();
+        this.steamId = entity.getSteamId();
+        this.steamUsername = entity.getSteamUsername();
+        this.active = entity.isActive();
     }
     
     // Getters and Setters
@@ -67,4 +96,16 @@ public class UserDto {
     
     public Double getKdr() { return kdr; }
     public void setKdr(Double kdr) { this.kdr = kdr; }
+    
+    public String getEmail() { return email; }
+    public void setEmail(String email) { this.email = email; }
+    
+    public String getSteamId() { return steamId; }
+    public void setSteamId(String steamId) { this.steamId = steamId; }
+    
+    public String getSteamUsername() { return steamUsername; }
+    public void setSteamUsername(String steamUsername) { this.steamUsername = steamUsername; }
+    
+    public Boolean getActive() { return active; }
+    public void setActive(Boolean active) { this.active = active; }
 }
